@@ -7,3 +7,4 @@ Have fun<br>
 It is a common game played by everyone the rules are same here as well and the keywords are case-sensitive <br>
 <b><i>More games are on the way</i></b>
 <h2>Game 3: (Hangman: 02/05/2021)</h2> <br>
+Still in developing stage
