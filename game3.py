@@ -11,10 +11,9 @@ from random import randint
 
 
 def position(list, item):  # index() is not used because it doesnot return if there are duplicate letters
-    for index in range(len(list)):  # traversing thro length of the list
+    for index in range(len(list)):  
         if list[index] == item:
-            return index + 1
-            # the output is comming partially correct
+            return index + 1 # the output is comming partially correct
 
 
 def Hangman():
@@ -23,7 +22,7 @@ def Hangman():
     count = 0
 
     word_text_file = open("words.txt", "r", encoding="UTF-8")
-    # You can input any word to download the words please check out my github repositry
+    # You can input any word to download the words please check out my github repositry 
     for columns in (raw.strip().split() for raw in word_text_file):
         i = randint(0, 55000)  # random number allocation
         secret_word = columns[i]
@@ -43,7 +42,7 @@ def Hangman():
                 user_guess_position = position(secret_word, user_guess)
 
                 print("Your letter guess is situated in", user_guess_position)
-                # To update guessed word by user (updates for each successful input) append right?
+                # To update guessed word by user (updates for each successful input)
                 user.insert(user_guess_position, user_guess)
                 print("The guessed word is : ", user)
 
@@ -70,4 +69,3 @@ def user_intro():  # User Introduction
 
 
 user_intro()
-# hey tell somethng know ?
