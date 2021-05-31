@@ -1,60 +1,53 @@
 ####################################################################################################################################################################
 # Author: Prajwal Prakash
-# Date: 16/11/2020
+# Date: 16/11/2020, Updated on 31/05/2021
 # Goal: To play Rock Paper Scissor with computer
 ###################################################################################################################################################################
-from random import randint
+from random import randint, choice
 import sys
 
-wins = 0
-tied = 0
-loses = 0
-v = ['rock', 'paper', 'scissor']
-computer_move = v[randint(0, 2)]
+v = ["Rock", "Paper", "Scissors"]
 
-player = False
-while player is False:
-    print("Welcome to the game! "
-          "Enter Your moves")
-    pm = input(''' rock 
- paper
- scissor
- (q) to Quit
-    ''')
-    if pm == computer_move:
-        print("This game is Tied! ")
-        tied = tied + 1
-        print(f"Ties: {tied}")
-    elif pm == 'rock':
-        if computer_move == 'paper':
-            print('Computer Wins! ')
-            loses = loses + 1
-            print(f'Loses: {loses}')
-            if computer_move == 'scissor':
-                print('You Win! ')
-                wins = wins + 1
-                print(f"Wins: {wins}")
-            elif pm == 'paper':
-                if computer_move == 'rock':
-                    print("You Win! ")
-                    wins = wins + 1
-                    print(f"Wins: {wins}")
-                    if computer_move == 'scissor':
-                        print("Computer Wins! ")
-                        loses = loses + 1
-                        print(f'Loses: {loses}')
-                    elif pm == 'scissor':
-                        if computer_move == 'rock':
-                            print("Computer Wins! ")
-                            loses = loses + 1
-                            print(f'Loses: {loses}')
-                            if computer_move == 'paper':
-                                print("You Win! ")
-                                wins = wins + 1
-                                print(f"Wins: {wins}")
-                            elif pm == 'q':
-                                sys.exit(0)
-                            else:
-                                print(
-                                    f"Enter valid keywords, you entered {pm} instead of (rocks, paper, scissor) Case-sensitive")
+computer_move = choice(v)
 
+player_move = False
+tie = 0
+win = 0
+lose = 0
+while not player_move:
+    player_move = input("""Rock,
+Paper,
+Scissors,
+(Q) to Quit
+""")
+    if player_move == computer_move:
+        tie += 1
+        print("-->Tie! Total ties:", tie)
+    elif player_move == "Rock":
+        if computer_move == "Paper":
+            lose += 1
+            print("-->You lose! Total loses:", lose)
+        else:
+            win += 1
+            print("-->You win! Total wins:", win)
+    elif player_move == "Paper":
+        if computer_move == "Scissors":
+            lose += 1
+            print("-->You lose! Total loses:", lose)
+        else:
+            win += 1
+            print("-->You win!")
+    elif player_move == "Scissors":
+        if computer_move == "Rock":
+            lose += 1
+            print("-->You lose! Total loses:", lose)
+        else:
+            win += 1
+            print("--> You win! Total wins:", win)
+    elif player_move == "Q":
+        sys.exit(0)
+    else:
+        print("-->That's not a valid play. Check your spelling (Case sensitive)")
+    player_move = False
+    computer_move = v[randint(0, 2)]
+    
