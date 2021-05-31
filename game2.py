@@ -4,7 +4,6 @@
 # Goal: To play Rock Paper Scissor with computer
 ###################################################################################################################################################################
 from random import choice
-
 v = ["Rock", "Paper", "Scissors"]
 playing = False
 tie = 0
@@ -20,22 +19,22 @@ Scissors,
     if player_move == computer_move:
         tie += 1
         print("-->Tie! Total ties:", tie)
-    elif player_move == "Rock":
-        if computer_move == "Paper":
+    elif player_move == "rock":
+        if computer_move == "paper":
             lose += 1
             print("-->You lose! Total loses:", lose)
         else:
             win += 1
             print("-->You win! Total wins:", win)
-    elif player_move == "Paper":
-        if computer_move == "Scissors".lower():
+    elif player_move == "paper":
+        if computer_move == "scissors":
             lose += 1
             print("-->You lose! Total loses:", lose)
         else:
             win += 1
-            print("-->You win!")
-    elif player_move == "Scissors":
-        if computer_move == "Rock":
+            print("-->You win! Total wins:", win)
+    elif player_move == "scissors":
+        if computer_move == "rock":
             lose += 1
             print("-->You lose! Total loses:", lose)
         else:
@@ -45,3 +44,4 @@ Scissors,
         playing = True
     else:
         print("-->That's not a valid play. Check your spelling")
+
